@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { account, ID } from './lib/appwrite';
+import { useState, useEffect } from 'react';
+import { account, ID, graphql } from './lib/appwrite';
 
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -11,6 +11,18 @@ const App = () => {
     await account.createEmailPasswordSession(email, password);
     setLoggedInUser(await account.get());
   }
+
+  useEffect(() => {
+    console.log('hi')
+    // Todo trigger graphql query
+  //   query GetAccount {
+  //     accountGet {
+  //         _id
+  //         email
+  //     }
+  // }
+  
+  }, [])
 
   return (
     <div>
