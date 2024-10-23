@@ -1,0 +1,110 @@
+/* General page styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle, #1b1b32, #111);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #ffffff;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Container for form */
+.login-container {
+    background-color: #2c2c54;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5), inset 10px 10px 30px rgba(255, 255, 255, 0.6);
+    width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.login-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #00e676;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+/* Input fields styling */
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #222;
+    box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.8), inset -4px -4px 10px rgba(50, 50, 50, 0.4);
+    font-size: 16px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    background: #333;
+    box-shadow: inset 6px 6px 15px rgba(0, 0, 0, 0.9), inset -6px -6px 15px rgba(50, 50, 50, 0.5);
+}
+
+/* Placeholder text styling */
+input::placeholder {
+    color: #999;
+    font-size: 14px;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(145deg, #00e676, #00c853);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: linear-gradient(145deg, #00c853, #00e676);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Add spacing between buttons */
+button + button {
+    margin-top: 15px;
+}
+
+/* Error message styling */
+.error-message {
+    margin-top: 10px;
+    color: #ff6b6b;
+    font-size: 14px;
+}
+
+/* Animation for smooth fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
