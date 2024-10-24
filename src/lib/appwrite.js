@@ -31,3 +31,10 @@ export const account = new Account(client);
 export const graphql = new Graphql(client);
 export { ID } from 'appwrite';
 
+    // Todo trigger graphql query
+  //   query GetAccount {
+  //     accountGet {
+  //         _id
+  //         email
+  //     }
+  // }
