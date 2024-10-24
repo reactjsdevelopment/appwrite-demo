@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import { account, ID } from './lib/appwrite';
+import { useHistory } from 'react-router-dom'; // Import useHistory for navigation
 import './LoginPage.css';
 
 // eslint-disable-next-line react/prop-types
@@ -8,6 +9,7 @@ const LoginPage = ({ setLoggedInUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const history = useHistory(); // Create history object for navigation
 
   async function login(email, password) {
     try {
@@ -28,6 +30,10 @@ const LoginPage = ({ setLoggedInUser }) => {
       console.error('Error registering user:', error);
     }
   }
+
+  const handleSignupRedirect = () => {
+    history.push('/signup'); // Redirect to signup page
+  };
 
   return (
     <div className="login-container">
@@ -50,9 +56,15 @@ const LoginPage = ({ setLoggedInUser }) => {
           Login
         </button>
 
-        <button type="button" onClick={() => register(email, password)}>
-          Register
-        </button>
+        <p>
+          Don't have an account?{' '}
+          <span
+            className="signup-link"
+            onClick={handleSignupRedirect} // Call the redirect function
+          >
+            Sign up
+          </span>
+        </p>
 
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </form>
