@@ -1,28 +1,25 @@
 import { useState, useEffect } from 'react';
-import { account, ID, graphql } from './lib/appwrite';
+import { account } from './lib/appwrite';
+import LoginPage from './LoginPage';
 
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-
-  async function login(email, password) {
-    await account.createEmailPasswordSession(email, password);
-    setLoggedInUser(await account.get());
-  }
 
   useEffect(() => {
-    console.log('hi')
-    // Todo trigger graphql query
-  //   query GetAccount {
-  //     accountGet {
-  //         _id
-  //         email
-  //     }
-  // }
-  
-  }, [])
+    // You can trigger the GraphQL query here once the user is logged in.
+    console.log('Checking if user is logged in...');
+    
+    const checkSession = async () => {
+      try {
+        const user = await account.get();
+        setLoggedInUser(user);
+      } catch (error) {
+        console.log('No active session:', error);
+      }
+    };
+
+    checkSession();
+  }, []);
 
   return (
     <div>
@@ -30,25 +27,9 @@ const App = () => {
         {loggedInUser ? `Logged in as ${loggedInUser.name}` : 'Not logged in'}
       </p>
 
-      <form>
-        <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-        <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-        <input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
-
-        <button type="button" onClick={() => login(email, password)}>
-          Login
-        </button>
-
-        <button
-          type="button"
-          onClick={async () => {
-            await account.create(ID.unique(), email, password, name);
-            login(email, password);
-          }}
-        >
-          Register
-        </button>
-
+      {!loggedInUser ? (
+        <LoginPage setLoggedInUser={setLoggedInUser} />
+      ) : (
         <button
           type="button"
           onClick={async () => {
@@ -58,7 +39,7 @@ const App = () => {
         >
           Logout
         </button>
-      </form>
+      )}
     </div>
   );
 };
