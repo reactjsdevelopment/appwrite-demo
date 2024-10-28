@@ -121,6 +121,12 @@ Once everything is set up, you can run your application. Open your browser and n
 
 ```http
 http://localhost:300/
+
+/v1/graphql
+https://cloud.appwrite.io/v1/locale
+https://cloud.appwrite.io/v1/users
+https://cloud.appwrite.io/console/
+https://appwrite.io/docs
 ```
 
 You're now ready to start developing your React application with Vite! Enjoy the process, explore the features, and have fun building! 🎊
