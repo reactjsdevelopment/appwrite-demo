@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import { account, ID } from './lib/appwrite';
-import { useHistory } from 'react-router-dom'; // Import useHistory for navigation
+import { useNavigate } from 'react-router-dom'; // Import useHistory for navigation
 import './LoginPage.css';
 
 // eslint-disable-next-line react/prop-types
@@ -9,7 +9,7 @@ const LoginPage = ({ setLoggedInUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const history = useHistory(); // Create history object for navigation
+  const naviagte = useNavigate();
 
   async function login(email, password) {
     try {
@@ -32,7 +32,7 @@ const LoginPage = ({ setLoggedInUser }) => {
   }
 
   const handleSignupRedirect = () => {
-    history.push('/signup'); // Redirect to signup page
+    naviagte('/signup'); // Redirect to signup page
   };
 
   return (
