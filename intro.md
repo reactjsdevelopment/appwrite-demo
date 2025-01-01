@@ -159,3 +159,23 @@ https://appwrite.io/docs
 ```
 
 You're now ready to start developing your React application with Vite! Enjoy the process, explore the features, and have fun building! 🎊
+
+- **Appwrite:** As the backend service for secure data management, including databases and authentication.
+
+### Usage of Appwrite
+
+- **Appwrite Authentication:** Manages user authentication and session handling securely, allowing users to log in with options like email/password, SMS, or OAuth providers such as Google and GitHub.
+
+- **Appwrite SDK:** Facilitates secure communication with the Appwrite API, ensuring efficient user authentication and session management.
+
+- **Appwrite Databases:** Creates and stores login information in a `manager` collection, securely managing user data such as passwords and transaction history.
+
+- **Appwrite Storage:** Manages file uploads, allowing users to securely store and share project-related documents and images.
+
+- **Appwrite Real-Time API:** Ensures instant updates across all connected users whenever new data is added to the database, enhancing collaboration.
+
+- **Appwrite Functions:** Enables serverless backend operations, ensuring scalability and security.
+
+- **Appwrite Notifications:** Facilitates sending and scheduling of email, SMS, and push notifications.
+
+- **Appwrite Users:** Allows management of project users, including searching, blocking, and editing preferences.
