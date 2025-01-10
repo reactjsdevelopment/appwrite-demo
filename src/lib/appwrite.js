@@ -31,9 +31,10 @@ client
 
 export const account = new Account(client);
 export const graphql = new Graphql(client);
+
 export { ID } from 'appwrite';
 
-    // Todo trigger graphql query
+  // trigger graphql query
   //   query GetAccount {
   //     accountGet {
   //         _id
@@ -42,33 +43,33 @@ export { ID } from 'appwrite';
   // }
 
 //   https://appwrite.io/docs/references/cloud/client-web/storage#storageListFiles
-const storage = new Storage(client);
+// const storage = new Storage(client);
 
-const promise = storage.createFile(
-    '671b62670037d26e6c4d',
-    ID.unique(),
-    document.getElementById('uploader').files[0]
-);
+// const promise = storage.createFile(
+//     '671b62670037d26e6c4d',
+//     ID.unique(),
+//     document.getElementById('uploader').files[0]
+// );
 
-promise.then(function (response) {
-    console.log(response); // Success
-}, function (error) {
-    console.log(error); // Failure
-});
-
-
-const result = storage.getFileDownload('[BUCKET_ID]', '[FILE_ID]');
-
-console.log(result); // Resource URL
+// promise.then(function (response) {
+//     console.log(response); // Success
+// }, function (error) {
+//     console.log(error); // Failure
+// });
 
 
-const databases = new Databases(client);
+// const result = storage.getFileDownload('[BUCKET_ID]', '[FILE_ID]');
 
-databases.listDocuments(
-    '<DATABASE_ID>',
-    '[COLLECTION_ID]',
-    [
-        Query.equal('title', ['Avatar', 'Lord of the Rings']),
-        Query.greaterThan('year', 1999)
-    ]
-);
+// console.log(result); // Resource URL
+
+
+// const databases = new Databases(client);
+
+// databases.listDocuments(
+//     '<DATABASE_ID>',
+//     '[COLLECTION_ID]',
+//     [
+//         Query.equal('title', ['Avatar', 'Lord of the Rings']),
+//         Query.greaterThan('year', 1999)
+//     ]
+// );
